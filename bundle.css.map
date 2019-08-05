@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "../src/App.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n  export let name;\n  const yeastAsProportionOfFlour = 0.002;\n  const saltAsProportionOfFlour = 0.03;\n\n  let numberOfDoughBalls = 1;\n  let weightOfEachBall = 250;\n  let waterPercentage = 57;\n\n  $: flour =\n    (numberOfDoughBalls * weightOfEachBall) /\n    (1 +\n      waterPercentage / 100 +\n      yeastAsProportionOfFlour +\n      saltAsProportionOfFlour);\n  $: water = (flour * waterPercentage) / 100;\n  $: salt = flour * saltAsProportionOfFlour;\n  $: yeast = flour * yeastAsProportionOfFlour;\n</script>\n\n<style>\n  h1 {\n    color: purple;\n  }\n</style>\n\n<h1>Pizza dough!</h1>\n\n<ul>\n  <li>flour {flour.toFixed(1)}</li>\n  <li>water {water.toFixed(1)}</li>\n  <li>salt {salt.toFixed(1)}</li>\n  <li>yeast {yeast.toFixed(1)}</li>\n</ul>\n"
+  ],
+  "names": [],
+  "mappings": "AAqBE,EAAE,eAAC,CAAC,AACF,KAAK,CAAE,MAAM,AACf,CAAC"
+}
